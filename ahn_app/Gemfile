@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem 'adhearsion', '~> 2.4'
+gem 'adhearsion-asr'
+
+gem 'adhearsion-drb' #DRB
+gem 'lemondrop'      #REDIS
+gem 'virginia'       #HTTP API
+
+group :development, :test do
+  gem 'rspec'
+end

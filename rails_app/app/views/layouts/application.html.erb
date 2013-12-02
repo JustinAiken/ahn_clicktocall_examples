@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+  <head>
+    <title> ClickToCall Example</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
+    <%= nav_bar brand: "Click To Call Example App", responsive: true do %>
+    <% end %>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span10">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div>
+      <footer>
+      </footer>
+    </div>
+  </body>
+</html>

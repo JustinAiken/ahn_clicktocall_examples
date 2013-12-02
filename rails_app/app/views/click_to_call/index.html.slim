@@ -1,0 +1,44 @@
+.row-fluid
+  .span8
+    h2 Active C2C's
+    table.table.table-striped.table-bordered.table-hover
+      thead
+        tr
+          th Num 1
+          th Num 2
+          th Status
+          th Method
+          th Hangup
+      tbody
+        - @all_calls.each do |k, call|
+          tr
+            td= call.first_num
+            td= call.second_num
+            td= call.status
+            td= call.ahn_method
+            td= link_to click_to_call_path(call.id), method: :delete do
+              =glyph :remove
+
+.row-fluid
+  .span4.well
+    = form_for(@call, url: {controller: "click_to_call", action: "create"}, method: "post", html: {class: "form-horizontal form-group"}) do |f|
+      fieldset
+        legend Place a new click2call
+        .control-group
+          = f.label :first_num, "First number: ", :class => "control-label"
+          .controls
+            = f.text_field :first_num
+          = f.label :second_num, "Second number: ", :class => "control-label"
+          .controls
+            = f.text_field :second_num
+        = f.label :ahn_method, "Method: ", :class => "control-label"
+        .controls.form-inline
+          = f.radio_button :ahn_method, :drb, :checked => true
+          = f.label :ahn_method_drb, 'DRB'
+          = f.radio_button :ahn_method, :redis
+          = f.label :ahn_method_redis, 'Redis'
+          = f.radio_button :ahn_method, :http
+          = f.label :ahn_method_http, 'HTTP'
+        br
+        .form-actions
+          = f.submit "Make it Ring!", class: "btn btn-success"

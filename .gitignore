@@ -1,0 +1,10 @@
+.vagrant/
+.bundle
+.*.swp
+.*.swo
+.DS_STORE
+log/*.log
+ahn_app/log/*.log
+tmp
+vendor/ruby
+vagrant_box/
