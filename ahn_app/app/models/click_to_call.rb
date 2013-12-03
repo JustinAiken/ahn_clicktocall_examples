@@ -27,10 +27,6 @@ class ClickToCall
     end
   end
 
-  def ahn_call
-    @ahn_call
-  end
-
   def hangup!
     @ahn_call.hangup
   end
@@ -41,9 +37,5 @@ class ClickToCall
 
   def self.find(id)
     @@calls[id]
-  end
-
-  def self.test
-    ClickToCall.new("user/usera", "user/userb", "foo").start!
   end
 end
